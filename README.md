@@ -1,2 +1,2 @@
-# jyngt
+# jynglobaltrade
 pagina web importaciones
