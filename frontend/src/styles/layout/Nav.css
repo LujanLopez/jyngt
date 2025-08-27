@@ -1,0 +1,198 @@
+/* === NAV BASE === */
+.nav {
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    overflow-x: hidden; /* Evita desplazamiento horizontal */
+  }
+  
+  .nav.scrolled {
+    padding: 0.3rem 0;
+  }
+  
+  .nav-content {
+    max-width: 1200px; /* Asegura que el contenido se ajuste */
+    margin: 0 auto; /* Centra el contenido */
+    padding: 1.2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: padding 0.3s ease;
+    width: 100%; /* Asegura que ocupe el 100% del ancho */
+  }
+  
+  .nav-left {
+    flex: 1;
+  }
+  
+  .nav-center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  /* === LOGO === */
+  .logo {
+    height: 80px;
+    object-fit: contain;
+  }
+  
+  /* === LINKS === */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+  
+  .nav-links li {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-links li a {
+    color: #002855;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-links li a:hover {
+    color: #7a7a7a;
+  }
+  
+  /* === CONTACT BUTTON === */
+  .nav-btn {
+    background-color: #002855;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .nav-btn:hover {
+    background-color: #7a7a7a;
+    color: white;
+  }
+  
+  
+
+
+
+
+
+/* === SOLO MOBILE (≤900px) — icono visible + overlay arriba del velo === */
+@media (max-width: 900px) {
+  /* Botón hamburguesa: sin fondo heredado y con icono SVG que usa currentColor */
+  .nav-right .hamburger{
+    display: inline-flex !important;
+    align-items: center; justify-content: center;
+    width: 26px; height: 26px;
+    padding: 0 !important; margin: 0 !important;
+    background: transparent !important; border: none !important; border-radius: 0 !important; box-shadow: none !important;
+    color: #0f172a !important;          /* tu gama */
+    position: relative; z-index: 1101;  /* encima del velo */
+    cursor: pointer;
+  }
+  /* oculto los spans (evita “mancha” negra) */
+  .nav-right .hamburger span{ display: none !important; }
+
+  /* Dibujo el icono con máscara: SIEMPRE visible (independiente del background) */
+  .nav-right .hamburger::before{
+    content: "";
+    display: block; width: 22px; height: 22px;
+    background-color: currentColor !important;
+    -webkit-mask: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>\
+<path d='M4 7h16M4 12h16M4 17h16' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/>\
+</svg>") center / 22px 22px no-repeat;
+            mask: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>\
+<path d='M4 7h16M4 12h16M4 17h16' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/>\
+</svg>") center / 22px 22px no-repeat;
+  }
+  /* Estado abierto: X */
+  .nav-right .hamburger.active::before{
+    -webkit-mask: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>\
+<path d='M6 6l12 12M18 6l-12 12' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/>\
+</svg>") center / 22px 22px no-repeat;
+            mask: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>\
+<path d='M6 6l12 12M18 6l-12 12' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/>\
+</svg>") center / 22px 22px no-repeat;
+  }
+
+  /* Overlay del menú: por ENCIMA del velo, ocupa toda la pantalla bajo el header */
+  .nav-center{
+    position: fixed;
+    top: var(--nav-h, 72px);
+    left: 0; right: 0; bottom: 0;
+    display: none !important;         /* cerrado por defecto */
+    background: #fff; color: #0f172a;
+    z-index: 1110;                    /* > velo y > botón */
+    overflow-y: auto; -webkit-overflow-scrolling: touch;
+    padding: 8px 0;
+    border-top: 1px solid #eef1f4;
+  }
+  .nav-center.open{ display: block !important; }
+
+  /* Items del menú (visibles y clickeables) */
+  .nav-links{ display: flex; flex-direction: column; gap: 0; list-style: none; margin: 0; padding: 0; }
+  .nav-links li{ border-bottom: 1px solid #eef1f4; }
+  .nav-links li:last-child{ border-bottom: 0; }
+  .nav-links a{ display: block; padding: 14px 20px; color: #0f172a !important; text-decoration: none; }
+  .nav-links a:hover{ background: #f1f5f9; } /* cambiá por tu gris si usás otro */
+
+  /* Velo con tu gama (azul oscuro translúcido) — por DEBAJO del panel */
+  .nav-backdrop{ display: none; pointer-events: none; }
+  .nav-backdrop.show{
+    display: block;
+    position: fixed; inset: 0;
+    background: rgba(15,23,42,.42);   /* #0f172a con alpha */
+    backdrop-filter: blur(1.5px);
+    z-index: 1100;                    /* < panel, > contenido */
+    pointer-events: auto;
+  }
+
+  /* Saneo de ancho para evitar “parte muerta” */
+  .nav, .nav-content, .nav-center{ margin-left: 0 !important; width: 100%; box-sizing: border-box; }
+  html, body{ overflow-x: hidden; }
+}
+
+
+/* === DESKTOP ONLY (≥901px): ocultar por completo el botón hamburguesa === */
+@media (min-width: 901px) {
+  .nav-right .hamburger {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  .nav-right .hamburger::before,
+  .nav-right .hamburger span {
+    content: none !important;
+    display: none !important;
+  }
+}

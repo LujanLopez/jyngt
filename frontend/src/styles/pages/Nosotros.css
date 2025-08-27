@@ -1,0 +1,127 @@
+.nosotros-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Asegura altura completa por sección */
+  .seccion {
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  /* Colores de fondo reutilizando esquema institucional */
+  .blanca {
+    background-color: white;
+  }
+  
+  .gris {
+    background-color: #f2f2f2;
+  }
+  
+  .azul {
+    background-color: #002855;
+    color: white;
+    text-align: center;
+  }
+  
+  /* Contenedor de contenido flexible */
+  .contenido {
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .texto {
+    flex: 1;
+    min-width: 280px;
+  }
+  
+  .texto h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: #002855;
+  }
+  
+  .texto p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #444;
+  }
+  
+  .azul .texto h2,
+  .azul .texto p,
+  .azul .cta h2,
+  .azul .cta p {
+    color: white;
+  }
+  
+  .imagen {
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  /* CTA final en azul */
+  .cta {
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  .cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta p {
+    font-size: 1.2rem;
+    color: white;
+    line-height: 1.6;
+  }
+  
+  /* Footer bottom padding */
+  .footer-seccion {
+    padding-bottom: 8rem;
+  }
+  
+  /* === Responsivo === */
+  @media (max-width: 768px) {
+    .contenido {
+      flex-direction: column;
+      padding: 2rem 1rem;
+    }
+  
+    .texto h2 {
+      font-size: 1.8rem;
+      text-align: center;
+    }
+  
+    .texto p {
+      font-size: 1rem;
+      text-align: center;
+    }
+  
+    .imagen {
+      max-width: 90%;
+    }
+  
+    .cta h2 {
+      font-size: 1.5rem;
+    }
+  
+    .cta p {
+      font-size: 1rem;
+    }
+  }
+  
