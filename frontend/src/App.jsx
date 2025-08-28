@@ -6,19 +6,12 @@ import Nosotros from './pages/Nosotros.jsx';
 import Catalogo from './pages/Catalogo.jsx';
 import PreguntasFrecuentes from './pages/Faq.jsx';
 
-function App() {
+export default function App() {
   return (
     <Router>
       <Nav />
-      <Routes>
-        <Route path="/" element={<Inicio />} />
-        <Route path="/catalogo" element={<Catalogo />} />
-        <Route path="/nosotros" element={<Nosotros />} />
-        <Route path="/faq" element={<PreguntasFrecuentes />} />
-      </Routes>
+      <Inicio />    {/* toda la web en una sola vista */}
       <Footer />
     </Router>
   );
 }
-
-export default App;
