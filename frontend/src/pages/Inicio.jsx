@@ -16,7 +16,7 @@ function Inicio() {
   const location = useLocation();
 
   // URL de tu Tienda Nube
-  const tiendaNubeURL = "https://tu-tienda-nube.com"; // ⬅️ reemplazá por tu link real
+  const tiendaNubeURL = "www.jyncatalogo.com.ar"; // ⬅️ reemplazá por tu link real
   // WhatsApp (AR: 54 + 9 + área sin 0 + número)
   const whatsappHref = "https://wa.me/5491133353252?text=Hola%21%20Quiero%20hacer%20una%20consulta%20sobre%20importaciones."; // ⬅️ reemplazá por tu nro real
 
@@ -55,7 +55,7 @@ function Inicio() {
 
             {/* VER CATÁLOGO: abre Tienda Nube y hereda hover de .nav-btn */}
             <a
-              href="https://jynglobaltrade2.mitiendanube.com"
+              href="www.jyncatalogo.com.ar"
               className="hero-btn nav-btn"
               target="_blank"
               rel="noopener noreferrer"

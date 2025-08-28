@@ -52,7 +52,7 @@ function Nav() {
             <li><a href="#top" onClick={() => setMenuOpen(false)}>Inicio</a></li>
             <li>
               <a
-                href="https://jynglobaltrade2.mitiendanube.com" /* ← TU URL real */
+                href="www.jyncatalogo.com.ar" /* ← TU URL real */
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
